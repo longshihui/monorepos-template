@@ -1,0 +1,89 @@
+{
+  "version": "1.5.0",
+  "private": true,
+  "description": "npapi插件集合",
+  "scripts": {
+    "preinstall": "npx -y only-allow pnpm",
+    "prepare": "husky install",
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook",
+    "dev": "pnpm run serve --filter @xjj-npapi/playground",
+    "build": "node ./scripts/build.js",
+    "link": "node ./scripts/dev-link.js",
+    "release": "node ./scripts/release.js --skipTests",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.0.66/frontGroup/office-npapi.git"
+  },
+  "engines": {
+    "node": "> 14.0.0",
+    "pnpm": "> 6.0.0",
+    "npm": "> 7.0.0"
+  },
+  "keywords": [
+    "npapi"
+  ],
+  "author": "longshihui",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "@changesets/cli": "^2.19.0",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-angular": "^15.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/vue": "^6.4.9",
+    "@vue/babel-preset-jsx": "^1.2.4",
+    "babel-loader": "^8.2.3",
+    "chalk": "^4.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "conventional-changelog": "^3.1.25",
+    "conventional-changelog-cli": "^2.2.2",
+    "core-js": "^3.20.2",
+    "css-loader": "^6.5.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "enquirer": "^2.3.6",
+    "execa": "^5.1.1",
+    "globby": "^11.0.4",
+    "husky": "^7.0.4",
+    "inquirer": "^8.2.0",
+    "minimist": "^1.2.5",
+    "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "semver": "^7.3.5",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "typescript-declaration-webpack-plugin": "^0.2.2",
+    "url-loader": "^4.1.1",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "yaml": "^1.10.2"
+  },
+  "lint-staged": {
+    "*.{ts, js,css,md}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
