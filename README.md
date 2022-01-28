@@ -1,2 +1,3 @@
-# ts-monorepos-template
-monorepos &amp; typescript
+# monorepos-template
+
+Monorepos模板工程
