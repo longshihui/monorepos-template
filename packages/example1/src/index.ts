@@ -1,3 +1,3 @@
-export function example1() {
-    console.log('样例代码1');
-}
+import Example1 from './Example1.vue';
+
+export default Example1;
