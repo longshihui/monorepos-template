@@ -2,9 +2,14 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-vue 组件的 monorepos 模板工程，适用于浏览器原生组件、Vue 2.x 组件的开发，以及他们的混合开发。
+该 monorepos 项目模板适用于以下场景：
 
-**仅仅支持浏览器端的组件的开发**
+- Vue 组件、原生 js 组件
+- 统一的版本号
+- 统一的构建流程
+- 统一的发布流程
+- workspaces 协议
+- 仅使用 pnpm
 
 [toc]
 
@@ -14,22 +19,21 @@ vue 组件的 monorepos 模板工程，适用于浏览器原生组件、Vue 2.x 
 .
 ├── packages
 │   ├── example1              // 包名
-│   │   ├── src // 包的源码
-│   │   ├── stories // 包的story文件
-│   │   ├── package.json // 包声明
-│   │   └── tsconfig.json // tsconfig配置
+│   │   ├── src               // 包的源码
+│   │   ├── stories           // 包的story文件
+│   │   └── package.json      // 包声明
 │   └── ...
 ├── scripts
-│   ├── build.js // 构建脚本
-│   ├── dev-link.js // 本地调试脚本
-│   └── release.js // 发布脚本
-├── babel.config.js
-├── commitlint.config.js
-└── webpack.config.jsa
-├── tsconfig.json
-├── pnpm-lock.yaml
-├── pnpm-workspace.yaml
-├── README.md
+│   ├── build.js              // 构建脚本
+│   ├── dev-link.js           // 本地调试脚本
+│   └── release.js            // 发布脚本
+├── babel.config.js           // 构建时使用的babel配置
+├── commitlint.config.js      // commit message校验
+└── webpack.config.js
+├── tsconfig.json             // 统一的typescript配置
+├── pnpm-lock.yaml            // pnpm 依赖锁定文件
+├── pnpm-workspace.yaml       // pnpm workspace配置
+├── README.md                 // 项目文档
 ├── package.json
 ```
 
