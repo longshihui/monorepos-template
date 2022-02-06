@@ -13,6 +13,10 @@
     "noImplicitAny": false,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
-    "declaration": true
-  }
+    "declaration": true,
+    "outDir": "dist",
+    "declarationDir": "."
+  },
+  "include": ["./packages/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

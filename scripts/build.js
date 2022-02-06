@@ -19,12 +19,13 @@ const COMMAND = ` ${chalk.black.bgGreen(" BUILD ")} `;
   // 获取workspaces路径列表
   const workspaces = await getWorkspaces();
   let finishCount = 0;
+
   try {
     await Promise.all(
       workspaces.map(async (packagePath) => {
         const absolutePath = path.resolve(process.cwd(), packagePath);
 
-        await execa("webpack", {
+        await execa("rollup", ["--config", "rollup.config.js"], {
           preferLocal: true,
           // 查找可执行二进制文件的路径
           localDir: process.cwd(),
@@ -32,7 +33,7 @@ const COMMAND = ` ${chalk.black.bgGreen(" BUILD ")} `;
           cwd: process.cwd(),
           // 指定子进程的env
           env: {
-            TARGET_PACKAGE: absolutePath,
+            WORKSPACE: absolutePath,
             DEBUG: process.env.DEBUG,
           },
           // 不继承父进程的env

@@ -1,13 +1,12 @@
 {
-  "name": "@xjj-npapi/core",
-  "version": "1.5.0",
-  "description": "npapi核心类",
+  "name": "@monorepos-example/example2",
+  "version": "0.0.0",
+  "description": "例子2",
   "main": "./src/index.ts",
   "module": "./dist/bundle.esm.js",
   "types:": "./dist/bundle.d.ts",
-  "browser": "./dist/bundle.umd.js",
   "publishConfig": {
-    "registry": "http://192.168.0.169:8081/repository/npm-releases/"
+    "registry": "https://registry.npm.org"
   },
   "files": [
     "src",
@@ -18,21 +17,15 @@
     "url": "http://192.168.0.66/frontGroup/xjj-npapi"
   },
   "keywords": [
-    "npapi",
-    "core"
+    "monorepos",
+    "example"
   ],
   "author": "longshihui",
-  "license": "ISC",
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "nanoid": "^3.1.30",
-    "tiny-emitter": "^2.1.0"
-  },
+  "license": "MIT",
   "buildOptions": {
-    "name": "XjjNPAPICore"
+    "name": "Example2"
   },
-  "browserslist": [
-    "Firefox > 52",
-    "not ie <= 8"
-  ]
+  "dependencies": {
+    "@monorepos-example/example1": "workspace:^0.0.0"
+  }
 }
