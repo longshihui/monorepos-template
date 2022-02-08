@@ -17,6 +17,12 @@
     "outDir": "dist",
     "declarationDir": "."
   },
-  "include": ["./packages/**/*"],
+  "include": [
+    "packages/*/src/**/*",
+    "packages/*/tests/**/*",
+    "packages/*/src/**/*.vue",
+    "packages/*/tests/**/*.vue",
+    "types/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }

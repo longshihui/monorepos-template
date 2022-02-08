@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
   "private": true,
-  "description": "npapi插件集合",
+  "description": "根目录",
   "scripts": {
     "preinstall": "npx -y only-allow pnpm",
     "prepare": "husky install",
@@ -26,6 +26,9 @@
   ],
   "author": "longshihui",
   "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.20.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/plugin-syntax-jsx": "^7.16.7",
@@ -44,7 +47,6 @@
     "chalk": "^4.1.2",
     "conventional-changelog": "^3.1.25",
     "conventional-changelog-cli": "^2.2.2",
-    "core-js": "^3.20.2",
     "cz-conventional-changelog": "^3.3.0",
     "enquirer": "^2.3.6",
     "execa": "^5.1.1",
