@@ -36,7 +36,6 @@ const run = (bin, args, opts = {}) =>
 const dryRun = (bin, args, opts = {}) =>
   console.log(chalk.blue(`[dryrun] ${bin} ${args.join(" ")}`), opts);
 const runIfNotDry = isDryRun ? dryRun : run;
-const getPkgRoot = (pkg) => path.resolve(__dirname, "../packages/" + pkg);
 const step = (msg) => console.log(chalk.cyan(msg));
 
 async function main() {
@@ -203,7 +202,7 @@ async function publishPackage(workspace, version) {
     console.log(chalk.green(`成功发布: ${pkgName}, 版本号: ${version}`));
   } catch (e) {
     if (e.stderr.match(/previously published/)) {
-      console.log(chalk.red(`Skipping already published: ${pkgName}`));
+      console.log(chalk.red(`包${pkgName}发布时发生异常，已跳过该包的发布。`));
     } else {
       throw e;
     }
