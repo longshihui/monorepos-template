@@ -5,7 +5,7 @@ export default {
   component: Example2,
 };
 
-export const Normalize = () => ({
+export const Normalize = (args) => ({
   components: {
     Example2,
   },
