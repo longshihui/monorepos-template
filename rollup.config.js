@@ -6,6 +6,8 @@ import path from "path";
 import fs from "fs";
 import fsp from "fs/promises";
 import typescript from "@rollup/plugin-typescript";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 const INPUT_PATH = path.resolve(process.env.WORKSPACE, "src/index.ts");
 const OUTPUT_PATH = path.resolve(process.env.WORKSPACE, "dist");
@@ -27,7 +29,7 @@ export default new Promise(async (resolve) => {
     input: INPUT_PATH,
     output: [
       {
-        file: path.join(OUTPUT_PATH, "bundle.js"),
+        file: path.join(OUTPUT_PATH, "bundle.umd.js"),
         format: "umd",
         name: buildOptions.name,
       },
@@ -38,22 +40,26 @@ export default new Promise(async (resolve) => {
     ],
     plugins: [
       vue({
+        normalizer: "~vue-runtime-helpers/dist/normalize-component.js",
         css: false,
+      }),
+      postcss({
+        extensions: [".css", ".less", ".scss", ".sass"],
+        extract: "bundle.css",
       }),
       typescript({
         tsconfig: "./tsconfig.json",
       }),
       babel({
         babelHelpers: "bundled",
-        exclude: "node_modules/**",
+        exclude: ["node_modules/**"],
+        extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".vue"],
       }),
-      postcss({
-        extensions: [".css", ".less", ".scss", ".sass"],
-        extract: "bundle.css",
-      }),
+      nodeResolve(),
+      commonjs(),
       terser(),
     ],
-    external: [...externals, /node_modules/],
+    external: [...externals, "vue"],
   });
 });
 
