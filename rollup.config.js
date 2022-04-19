@@ -5,9 +5,10 @@ import { terser } from "rollup-plugin-terser";
 import path from "path";
 import fs from "fs";
 import fsp from "fs/promises";
-import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import typescript2 from "rollup-plugin-typescript2";
+import { DEFAULT_EXTENSIONS } from "@babel/core";
 
 const INPUT_PATH = path.resolve(process.env.WORKSPACE, "src/index.ts");
 const OUTPUT_PATH = path.resolve(process.env.WORKSPACE, "dist");
@@ -47,13 +48,19 @@ export default new Promise(async (resolve) => {
         extensions: [".css", ".less", ".scss", ".sass"],
         extract: "bundle.css",
       }),
-      typescript({
-        tsconfig: "./tsconfig.json",
+      typescript2({
+        check: true,
+        tsconfig: path.join(__dirname, "./tsconfig.json"),
+        tsconfigOverride: {
+          compilerOptions: {
+            declaration: true,
+          },
+        },
       }),
       babel({
         babelHelpers: "bundled",
         exclude: ["node_modules/**"],
-        extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".ts", ".vue"],
+        extensions: [...DEFAULT_EXTENSIONS, ".tsx", ".ts", ".vue"],
       }),
       nodeResolve(),
       commonjs(),

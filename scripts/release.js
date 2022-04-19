@@ -98,7 +98,11 @@ async function main() {
   if (stdout) {
     step("\n提交更改内容...");
     await runIfNotDry("git", ["add", "-A"]);
-    await runIfNotDry("git", ["commit", "-m", `release: v${nextVersion}`]);
+    await runIfNotDry("git", [
+      "commit",
+      "-m",
+      `chore: 发布版本v${nextVersion}`,
+    ]);
   } else {
     console.log("No changes to commit.");
   }
@@ -193,16 +197,18 @@ async function publishPackage(workspace, version) {
     return;
   }
 
-  step(`发布包: ${pkgName}...`);
+  step(`发布包: ${workspace}...`);
   try {
     await runIfNotDry("pnpm", ["publish", "--access", "public"], {
       cwd: workspace,
       stdio: "pipe",
     });
-    console.log(chalk.green(`成功发布: ${pkgName}, 版本号: ${version}`));
+    console.log(chalk.green(`成功发布: ${workspace}, 版本号: ${version}`));
   } catch (e) {
     if (e.stderr.match(/previously published/)) {
-      console.log(chalk.red(`包${pkgName}发布时发生异常，已跳过该包的发布。`));
+      console.log(
+        chalk.red(`包${workspace}发布时发生异常，已跳过该包的发布。`)
+      );
     } else {
       throw e;
     }

@@ -22,7 +22,7 @@ const COMMAND = chalk.black.bgGreen("DEV:LINK");
   }
 
   await linkPackageToLocalRegistry(workspaces);
-
+ 
   console.log(`${COMMAND} 链接完成`);
 
   console.log(`${COMMAND}

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
@@ -11,18 +13,22 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false,
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "baseUrl": ".",
     "declaration": true,
-    "outDir": "dist",
     "declarationDir": "."
   },
   "include": [
     "packages/*/src/**/*",
-    "packages/*/src/**/*.vue",
     "packages/*/__tests__/**/*",
-    "packages/*/__tests__/**/*.vue",
     "types/**/*"
   ],
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
