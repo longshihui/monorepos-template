@@ -20,9 +20,9 @@
     "monorepos",
     "example"
   ],
-  "author": "longshihui",
+  "author": "Long ShiHui",
   "license": "ISC",
   "buildOptions": {
-    "name": "Example1"
+    "name": "ExampleComponent1"
   }
 }

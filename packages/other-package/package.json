@@ -1,7 +1,7 @@
 {
-  "name": "@example/shared",
+  "name": "@example/other-package",
   "version": "0.0.0",
-  "description": "shared to example1 and example2",
+  "description": "other package is used to test monorepos",
   "main": "./dist/bundle.umd.ts",
   "module": "./dist/bundle.esm.js",
   "types:": "./dist/bundle.d.ts",
@@ -22,6 +22,6 @@
   "author": "Long ShiHui",
   "license": "ISC",
   "buildOptions": {
-    "name": "Shared"
+    "name": "OtherPackage"
   }
 }
