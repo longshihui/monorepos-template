@@ -1,5 +1,5 @@
 {
-  "name": "@monorepos-example/example1",
+  "name": "@example/vue-component-1",
   "version": "0.0.0",
   "description": "样例1",
   "main": "./dist/bundle.umd.js",

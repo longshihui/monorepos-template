@@ -1,8 +1,8 @@
 {
-  "name": "@monorepos-example/example2",
+  "name": "@example/vue-component-2",
   "version": "0.0.0",
   "description": "例子2",
-  "main": "./src/index.ts",
+  "main": "./dist/bundle.umd.js",
   "module": "./dist/bundle.esm.js",
   "types:": "./dist/bundle.d.ts",
   "publishConfig": {
@@ -26,6 +26,6 @@
     "name": "Example2"
   },
   "dependencies": {
-    "@monorepos-example/example1": "workspace:^0.0.0"
+    "@example/vue-component-1": "workspace:^0.0.0"
   }
 }

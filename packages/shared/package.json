@@ -1,5 +1,5 @@
 {
-  "name": "@monorepos-example/shared",
+  "name": "@example/shared",
   "version": "0.0.0",
   "description": "shared to example1 and example2",
   "main": "./dist/bundle.umd.ts",
