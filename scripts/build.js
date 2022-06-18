@@ -27,30 +27,45 @@ const logger = new Logger("BUILD");
 async function buildAll(workspaces) {
   let finishCount = 0;
 
-  await Promise.all(
-    workspaces.map(async (packagePath) => {
-      logger.success(packagePath, " -> ", `开始打包`);
-      // 包的绝对路径
-      const absolutePath = path.resolve(process.cwd(), packagePath);
-      // 清理之前构建的产物
-      await clean(packagePath, absolutePath);
-      // 执行构建
-      await build(packagePath, absolutePath);
-      // 打包d.ts文件
-      await rollupDTS(packagePath, absolutePath);
+  try {
+    await Promise.allSettled(
+      workspaces.map(async (packagePath) => {
+        logger.success(packagePath, " -> ", `开始打包`);
+        // 包的绝对路径
+        const absolutePath = path.resolve(process.cwd(), packagePath);
+        // 清理之前构建的产物
+        await clean(packagePath, absolutePath);
+        // 执行构建
+        await build(packagePath, absolutePath);
+        // 打包d.ts文件
+        await rollupDTS(packagePath, absolutePath);
 
-      finishCount++;
+        finishCount++;
 
-      logger.success(
-        packagePath,
-        " -> ",
-        `打包完成，当前进度${finishCount}/${workspaces.length}`
+        logger.success(
+          packagePath,
+          " -> ",
+          `打包完成，当前进度${finishCount}/${workspaces.length}`
+        );
+      })
+    );
+  } catch (error) {
+    throw error;
+  } finally {
+    const isFinish = finishCount === workspaces.length;
+
+    logger.newLine();
+
+    if (isFinish) {
+      logger.success("所有包打包完成!");
+    } else {
+      logger.warning(
+        `打包完成, 成功: ${finishCount}个, 失败: ${
+          workspaces.length - finishCount
+        }个`
       );
-    })
-  );
-
-  logger.newLine();
-  logger.success("打包完成!");
+    }
+  }
 }
 
 async function build(packagePath, absolutePath) {

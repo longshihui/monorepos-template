@@ -4,14 +4,14 @@ class Logger {
   constructor(command) {
     this.command = ` ${command} `;
     this.prefix = {
-      info: ` ${chalk.black.bgWhite(this.command)} `,
+      info: ` ${chalk.black.bgBlue(this.command)} `,
       warning: ` ${chalk.black.bgYellow(this.command)} `,
       success: ` ${chalk.black.bgGreen(this.command)} `,
       error: ` ${chalk.black.bgRed(this.command)} `,
     };
   }
   info(...messages) {
-    console.log(`${this.prefix.info} ${chalk.white(messages.join(""))}`);
+    console.log(`${this.prefix.info} ${chalk.blue(messages.join(""))}`);
   }
   warning(...messages) {
     console.log(`${this.prefix.warning} ${chalk.yellow(messages.join(""))}`);
