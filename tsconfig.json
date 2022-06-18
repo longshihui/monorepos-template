@@ -22,7 +22,7 @@
     "declaration": true,
     "declarationDir": ".",
     "paths": {
-      "@monorepos/*": [
+      "@monorepos-example/*": [
         "packages/*/src"
       ]
     }
