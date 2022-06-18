@@ -20,7 +20,12 @@
     ],
     "baseUrl": ".",
     "declaration": true,
-    "declarationDir": "."
+    "declarationDir": ".",
+    "paths": {
+      "@monorepos/*": [
+        "packages/*/src"
+      ]
+    }
   },
   "include": [
     "packages/*/src/**/*",

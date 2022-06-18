@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://192.168.0.66/frontGroup/xjj-npapi"
+    "url": "https://github.com/longshihui/monorepos-template"
   },
   "keywords": [
     "monorepos",

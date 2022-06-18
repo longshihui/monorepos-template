@@ -57,11 +57,6 @@ async function build(packagePath, absolutePath) {
   logger.info(packagePath, " -> ", "开始打包源文件");
   // 使用rollup构建出ts产物
   await execa("rollup", ["--config", "rollup.config.js"], {
-    preferLocal: true,
-    // 查找可执行二进制文件的路径
-    localDir: process.cwd(),
-    // 指定子进程的工作目录
-    cwd: process.cwd(),
     // 指定子进程的env
     env: {
       WORKSPACE: absolutePath,

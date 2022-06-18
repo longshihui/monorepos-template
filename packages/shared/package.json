@@ -1,8 +1,8 @@
 {
-  "name": "@monorepos-example/example1",
+  "name": "@monorepos-example/shared",
   "version": "0.0.0",
-  "description": "样例1",
-  "main": "./dist/bundle.umd.js",
+  "description": "shared to example1 and example2",
+  "main": "./dist/bundle.umd.ts",
   "module": "./dist/bundle.esm.js",
   "types:": "./dist/bundle.d.ts",
   "publishConfig": {
